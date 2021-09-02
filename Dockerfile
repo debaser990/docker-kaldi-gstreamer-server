@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y  \
     automake \
     bzip2 \
     g++ \
+    gfortran \
     git \
     gstreamer1.0-plugins-good \
     gstreamer1.0-tools \
@@ -34,10 +35,10 @@ RUN apt-get update && apt-get install -y  \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     pip install ws4py==0.3.2 && \
-    pip install tornado && \    
+    pip install tornado==4.5.3 && \  
     ln -s /usr/bin/python2.7 /usr/bin/python ; ln -s -f bash /bin/sh
 
-WORKDIR /opt
+WORKDIR /optpip install tornado && \  
 
 RUN wget http://www.digip.org/jansson/releases/jansson-2.7.tar.bz2 && \
     bunzip2 -c jansson-2.7.tar.bz2 | tar xf -  && \
