@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y  \
     pip install tornado==4.5.3 && \  
     ln -s /usr/bin/python2.7 /usr/bin/python ; ln -s -f bash /bin/sh
 
-WORKDIR /optpip install tornado && \  
+WORKDIR /opt
 
 RUN wget http://www.digip.org/jansson/releases/jansson-2.7.tar.bz2 && \
     bunzip2 -c jansson-2.7.tar.bz2 | tar xf -  && \
@@ -61,7 +61,7 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     git clone https://github.com/alumae/gst-kaldi-nnet2-online.git && \
     cd /opt/gst-kaldi-nnet2-online/src && \
     sed -i '/KALDI_ROOT?=\/home\/tanel\/tools\/kaldi-trunk/c\KALDI_ROOT?=\/opt\/kaldi' Makefile && \
-    make depend -j $(nproc) && make -j $(nproc) && \
+    make depend -j $(nproc) && make -j $(nproc) && \/optpip install tornado && \  
     rm -rf /opt/gst-kaldi-nnet2-online/.git/ && \
     find /opt/gst-kaldi-nnet2-online/src/ -type f -not -name '*.so' -delete && \
     rm -rf /opt/kaldi/.git && \
