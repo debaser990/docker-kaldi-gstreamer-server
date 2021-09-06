@@ -61,7 +61,7 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     git clone https://github.com/alumae/gst-kaldi-nnet2-online.git && \
     cd /opt/gst-kaldi-nnet2-online/src && \
     sed -i '/KALDI_ROOT?=\/home\/tanel\/tools\/kaldi-trunk/c\KALDI_ROOT?=\/opt\/kaldi' Makefile && \
-    make depend -j $(nproc) && make -j $(nproc) && \/optpip install tornado && \  
+    make depend -j $(nproc) && make -j $(nproc) && \ 
     rm -rf /opt/gst-kaldi-nnet2-online/.git/ && \
     find /opt/gst-kaldi-nnet2-online/src/ -type f -not -name '*.so' -delete && \
     rm -rf /opt/kaldi/.git && \
@@ -72,7 +72,7 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     rm -rf /opt/kaldi-gstreamer-server/.git/ && \
     rm -rf /opt/kaldi-gstreamer-server/test/
 
-COPY start.sh stop.sh /opt/
+COPY start.sh stop.sh /opt//optpip install tornado && \ 
 
 RUN chmod +x /opt/start.sh && \
     chmod +x /opt/stop.sh 
