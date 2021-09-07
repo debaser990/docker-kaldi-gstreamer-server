@@ -72,7 +72,7 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     rm -rf /opt/kaldi-gstreamer-server/.git/ && \
     rm -rf /opt/kaldi-gstreamer-server/test/
 
-COPY start.sh stop.sh /opt//optpip install tornado && \ 
+COPY start.sh stop.sh /opt/ 
 
 RUN chmod +x /opt/start.sh && \
     chmod +x /opt/stop.sh 
